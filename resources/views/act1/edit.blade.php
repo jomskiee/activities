@@ -1,12 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@include('notif.notif')
 <h1 class="mt-4 mb-4">Edit Product</h1>
 @if(count($errors) > 0)
-                            @foreach($errors->all() as $error)
-                                <div class="alert alert-danger">{{ $error }}</div>
-                            @endforeach
-                        @endif
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">{{ $error }}</div>
+    @endforeach
+@endif
 <form action="{{ route('product.update' , $product) }}" method="POST" enctype="multipart/form-data">
     @csrf
     {{ method_field('PUT') }}

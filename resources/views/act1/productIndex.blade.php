@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@include('notif.notif')
 <h1 class="mt-4">laravel 8 CRUD Example</h1>
             <a href="{{ route('product.create') }}" class="btn btn-success">
                 <span class="hidden-xs hidden-sm"><em>Add Product</em></span>

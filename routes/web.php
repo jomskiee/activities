@@ -24,3 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::namespace('App\Http\Controllers')->group(function(){
     Route::resource('/product', ProductController::class);
 });
+Route::namespace('App\Http\Controllers')->group(function(){
+    Route::resource('/file', FileController::class);
+});

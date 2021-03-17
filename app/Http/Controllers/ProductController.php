@@ -56,8 +56,12 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
 
-        $product->save();
-        return redirect()->route('product.index');
+        if( $product->save()){
+            return redirect()->route('product.index')->with('success', 'Product has been added successfully');
+        }
+        else{
+            return redirect()->route('product.create')->with('error', 'Error in adding the product');
+        }
     }
 
     /**
@@ -105,8 +109,12 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
 
-        $product->save();
-        return redirect()->route('product.index');
+        if( $product->save()){
+            return redirect()->route('product.index')->with('success', 'Product has been updated successfully');
+        }
+        else{
+            return redirect()->route('product.edit')->with('error', 'Error updating the product');
+        }
     }
 
     /**
@@ -117,7 +125,11 @@ class ProductController extends Controller
      */
     public function destroy(Products $product)
     {
-        $product->delete();
-        return redirect()->route('product.index');
+        if( $product->delete()){
+            return redirect()->route('product.index')->with('success', 'Product has been deleted successfully');
+        }
+        else{
+            return redirect()->route('product.index')->with('error', 'Error in deleting the product');
+        }
     }
 }

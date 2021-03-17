@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+@include('notif.notif')
 <div class="row justify-content-center mt-5">
         <div class="col-md-7">
             <div class="card">
