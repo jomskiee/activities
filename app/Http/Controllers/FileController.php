@@ -50,7 +50,7 @@ class FileController extends Controller
         $extension = $request->file('file')->getClientOriginalExtension();
         $fname = $request->file('file')->getClientOriginalName();
         $name = pathinfo($fname, PATHINFO_FILENAME);
-        $imagePath = $request->file('file')->store('uploads');
+        $imagePath = $request->file('file')->store('uploads', 'public');
 
         #$file = new File;
         $file->name = $name;
@@ -108,7 +108,7 @@ class FileController extends Controller
         ]);
         $extension = $request->file('file')->getClientOriginalExtension();
         $name = $request->name;
-        $imagePath = $request->file('file')->store('uploads');
+        $imagePath = $request->file('file')->store('uploads', 'public');
         
         $file->name = $name;
         $file->type = $extension;
